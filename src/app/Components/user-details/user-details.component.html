@@ -1,0 +1,105 @@
+@if (isLoading) {
+<div class="loader position-fixed h-100 w-100 d-flex align-items-center justify-content-center">
+    <div class="spinner-border  " role="status">
+    </div>
+</div>
+}@else {
+<div class="user-data-wrapper text-capitalize m-3">
+
+    <div class="table-responsive">
+        <h3>personal info</h3>
+        <table class="table table-primary">
+
+            <tbody>
+                <tr class="">
+                    <td>name</td>
+                    <td>{{userData?.name}}</td>
+                </tr>
+                <tr class="">
+                    <td>ID</td>
+                    <td>{{userData?.id}}</td>
+                </tr>
+                <tr class="">
+                    <td>username</td>
+                    <td>{{userData?.username}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <h3>Work</h3>
+        <table class="table table-primary">
+
+            <tbody>
+                <tr class="">
+                    <td colspan="2">
+                <tr>
+                    <td class="pe-2">company</td>
+                    <td>{{userData?.company?.name}}</td>
+                </tr>
+                <tr>
+                    <td>phrase</td>
+                    <td>{{userData?.company?.catchPhrase}}</td>
+                </tr>
+                <tr>
+                    <td>bs</td>
+                    <td>{{userData?.company?.bs}}</td>
+                </tr>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive">
+        <h3>Address</h3>
+        <table class="table table-primary">
+
+            <tbody>
+                <tr class="">
+                    <td>Address</td>
+                    <td>
+                        {{ userData?.address?.city }}, {{ userData?.address?.street }}, {{
+                        userData?.address?.suite }}, {{
+                        userData?.address?.zipcode }}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>GEO</td>
+                    <td>
+                        Latitude: {{ userData?.address?.geo?.lat }}, Longitude: {{
+                        userData?.address?.geo?.lng }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="table-responsive">
+        <h3>contact info</h3>
+        <table class="table table-primary">
+            <tbody>
+                <tr class="">
+                    <td>tel</td>
+                    <td>
+                        {{userData?.phone}}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>email</td>
+                    <td>
+                        {{userData?.email}}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>website</td>
+                    <td>
+                        {{userData?.website}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+}

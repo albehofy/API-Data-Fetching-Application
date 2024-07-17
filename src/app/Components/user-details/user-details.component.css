@@ -1,0 +1,8 @@
+.loader > div {
+    width: 75px!important;
+    height: 75px!important;
+}
+
+.user-data-wrapper {
+    max-width: 721px;
+}

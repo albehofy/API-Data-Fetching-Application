@@ -1,0 +1,13 @@
+.w-10{
+    width: 10%;
+    min-width: 45px;
+}
+.w-33{
+    width: 33%;
+}
+
+.no-data{
+    width: 100%;
+    max-width: 420px;
+    margin-top: -42px;
+}

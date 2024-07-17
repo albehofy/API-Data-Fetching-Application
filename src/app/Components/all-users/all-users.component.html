@@ -1,0 +1,42 @@
+@if (isLoading) {
+<div class="loader position-fixed h-100 w-100 d-flex align-items-center justify-content-center">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
+}@else {
+<div ngClass="container text-center">
+  <h3 ngClass="py-1 text-danger">Fetching All Users </h3>
+  <p>click on any cell of the user row to show user data in details</p>
+  <input type="text" class="form-control form-control-lg mb-2" [(ngModel)]="userInfo" (input)="filterUsers()"
+    placeholder="Search users by name or username">
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li ngClass="list-group-item d-flex justify-content-around text-center p-0 text-uppercase text-danger">
+          <span ngClass=" d-inline-block w-10 py-2 fw-bolder">ID</span>
+          <span ngClass=" d-inline-block w-50 py-2 border border-top-0 border-bottom-0 fw-bolder">name</span>
+          <span ngClass=" d-inline-block w-33 py-2 fw-bolder">username</span>
+      </li>
+      @if (totalItems > 0) {
+        @for (user of items; track $index) {
+          <li class="list-group-item p-0">
+            <a [routerLink]="['/user', user.id]" ngClass="text-decoration-none d-flex justify-content-around text-center">
+              <span ngClass=" d-inline-block w-10 py-2 ">{{ user.id }}</span>
+              <span ngClass=" d-inline-block w-50 py-2 border border-top-0 border-bottom-0 ">{{ user.name }}</span>
+              <span ngClass=" d-inline-block w-33 py-2 ">{{ user.username }}</span>
+            </a>
+          </li>
+          }
+      }@else {
+       <div ngClass="text-center pt-5 text-warning">
+         <h2>oooops there's no data</h2>
+        <img src="./assets/noData.png" ngClass="no-data" alt="no data founded">
+       </div>
+      }
+
+    </ul>
+  </div>
+
+  <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" (page)="pageChanged($event)">
+  </mat-paginator>
+
+</div>
+}
